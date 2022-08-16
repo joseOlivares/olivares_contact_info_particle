@@ -1,134 +1,33 @@
+{# Website contact info email, WhatsApp and Phonecall number  by José Luis Olivares. 
+You can say thanks endorsing my skills on https://www.linkedin.com/in/jolivaress/.
+and/or  making a voluntary donation through Paypal https://paypal.me/joolivares #}
+
 {% extends '@nucleus/partials/particle.html.twig' %} 
 
-{% set attr_extra = '' %}
-{% if particle.extra %}
-    {% for attributes in particle.extra %}
-        {% for key, value in attributes %}
-            {% set attr_extra = attr_extra ~ ' ' ~ key|e ~ '="' ~ value|e('html_attr') ~ '"' %}
-        {% endfor %}
-    {% endfor %}
-{% endif %}
+{% set title_heading %} {# definiendo que heading mostrar y almacenando en variable title_heading #}
+    {% if particle.heading|e == h1 %}
+        <h1 class="uk-card-title">{{ particle.title|raw}}</h1>
+    {% endif %}
 
-{% set slideshow_settings %} {# parametros de configuracion slideshow #}
+    {% if particle.heading|e == h2 %}
+        <h2 class="uk-card-title">{{ particle.title|raw}}</h2>
+    {% endif %}
 
-        autoplay:{{ particle.autoplay|default("true")|e }};
-        autoplay-interval:{{ particle.autoplayInterval|default(7000)|e }};
-        animation:{{ particle.animation|default('fade')|e }};
-        duration:{{ particle.animationDuration|default(500)|e }};
-        pause-on-hover:{{ particle.pauseOnHover|default("true")|e }};
-        min-height:{{ particle.height|default('auto')|e }};
-        {% if particle.imageratio != 0 %} {# se usará solo cuando el slideshow no sea fullscreen #}
-        ratio:{{particle.imageratio|default('16:9')}};
-        {% endif %}
+    {% if particle.heading|e == h3 %}
+        <h3 class="uk-card-title">{{ particle.title|raw}}</h3>
+    {% endif %}            
 {% endset %}
 
-{% set slideshow_slides %}
-    {% for item in particle.items %}
-        {% if item.enabledSlide == true %}
-            {% set slide_media %}
-                {% if item.image and item.kenburns == false %}
-                    <img alt="{{ item.alt|e }}" src="{{ url(item.image) }}" uk-cover>
-                {% endif %}
 
-                {% if item.image and item.kenburns == true %} {# si efecto Kenburns es aplicado #}
-                  <div class="uk-position-cover uk-animation-kenburns {{ item.kenburnsEffects|raw }}">
-                    <img alt="{{ item.alt|e }}" src="{{ url(item.image) }}" uk-cover>
-                  </div>
-                {% endif %}
-
-                {% if item.videoiframe %}
-                    {{ item.videoiframe|raw }}
-                {% endif %}
-            {% endset %}
-
-            {% set slide_overlay %}
-                {# aqui iba bloque set slide_overlay_background #}                
-                {% set title %}
-                    <h{{gantry.platform.filter(item.titleHeading)|raw }} class="uk-margin-remove" {% if item.titlecolor %} style="color:{{ item.titlecolor|e }}" {% endif %}>  
-                      {% if item.link %}
-                          <a href="{{ item.link|e }}" target="{{ item.target|default('_parent')|raw }}" class="{{ item.linktype }}" {% if item.titlecolor %}  style="color:{{ item.titlecolor|e }}" {% endif %} >
-                      {% endif %}
-                          {{ gantry.platform.filter(item.title)|html|raw }}
-                      {% if item.link %}
-                          </a>
-                      {% endif %}
-                    </h{{ gantry.platform.filter(item.titleHeading)|raw }}>
-                {% endset %}
-
-                {% set description %}
-                    <div class="{{ item.descriptclass|raw }}" {% if item.descriptcolor %} style="color:{{ item.descriptcolor }}" {% endif %}>
-                        {{ gantry.platform.filter(item.description)|html|raw }}
-                    </div>
-                {% endset %}
-
-                {% set buttons %}
-                    <div class="{{ item.buttonsclass|raw }}">
-                        {% for button in item.buttons %}
-                          {% if button.buttonstyle == 'uk-button-default'  %} {#se le agrega la clase jl-btn-default #}
-                              <a class="uk-button {{ button.buttonstyle|e }} jl-btn-default {{ button.btnclass|e }}" target="{{ button.target|default('_parent')|e }}" href="{{ button.link|e }}" {% if button.ukscrollbtn %} uk-scroll="{{ button.ukscrollbtn|e }}" {% endif %} {% if button.btntextcolor %} style="color:{{ button.btntextcolor|e }}" {% endif %} >
-                          {% else %}
-                              <a class="uk-button {{ button.buttonstyle|default('uk-button-default')|e }} {{ button.btnclass|e }}" target="{{ button.target|default('_parent')|e }}" href="{{ button.link|e }}" {% if button.ukscrollbtn %} uk-scroll="{{ button.ukscrollbtn|e }}" {% endif %} {% if button.btntextcolor %} style="color:{{ button.btntextcolor|e }}" {% endif %}>
-                          {% endif %}
-                                  {% if button.buttonicon %}
-                                      <span class="{{ button.buttonicon|e }}"></span>
-                                  {% endif %}
-                                  {{ button.text|raw }}
-                              </a>
-                        {% endfor %}
-                    </div>
-                {% endset %}
-
-                {% if item.overlayposition == 'uk-position-center'  %}
-                  <!-- forcing horizontal centering using my custom class jl-force-hcenter-->
-                  <div class="uk-overlay {{ item.overlayposition }} {{ item.overlaytransition|e }} {{ item.overlaybackground }} uk-text-{{ item.content_align|default('center') }} {{ item.overlayclass|raw }} jl-force-hcenter">
-                {% else %}
-                  <div class="uk-overlay {{ item.overlayposition }} {{ item.overlaytransition|e }} {{ item.overlaybackground }} uk-text-{{ item.content_align|default('center') }} {{ item.overlayclass|raw }}">
-                {% endif %}
-                      <div class="">   {#  en class iba item.overlaytransition|e y se quitaba del div padre para que el centrado funcionara bien  #}
-                          {% if item.title %}
-                              {{ title }}
-                          {% endif %}
-
-                          {% if item.description %}
-                              {{ description }}
-                          {% endif %}
-
-                          {% if item.buttons %}
-                              {{ buttons }}
-                          {% endif %}
-                        </div>   <!-- -->
-                  </div>
-            {% endset %}
-
-            <li class="{% if item.class %} {{ item.class|e }}{% endif %}">
-                    {{ slide_media }}
-                {% if item.title or item.description or item.buttons %}
-                    {{ slide_overlay }}
-                {% endif %}
-            </li>
-        {% endif %}  
-    {% endfor %}
-{% endset %}
-
-{% block particle %}
-     <div class="{% if particle.css.class %} {{ particle.css.class|e }}{% endif %}" {% if particle.extra %}{{ attr_extra|raw }} {% endif %}>
-        <div class="uk-position-relative uk-visible-toggle uk-light {% if particle.navigation|default('arrows') == 'arrowsvisible' or particle.navigation|default('arrows') == 'bothvisible' %} nav-visible{% endif %}" tabindex="-1" uk-slideshow="{{ slideshow_settings }}" >
-            <ul class="uk-slideshow-items uk-overlay-active"  {% if particle.fullscreen|default(0) %} uk-height-viewport {% endif %} >
-                {{ slideshow_slides }}
-            </ul>
-
-            {% if (particle.navigation|default('arrows') == 'arrows') or (particle.navigation|default('arrows') == 'arrowsvisible') or (particle.navigation|default('arrows') == 'both') or (particle.navigation|default('arrows') == 'bothvisible') %}
-
-                    <a class="uk-position-center-left uk-position-small uk-hidden-hover" style="background-color:{{ particle.arrowBackground|e }};" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
-                    <a class="uk-position-center-right uk-position-small uk-hidden-hover" style="background-color:{{ particle.arrowBackground|e }};" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
-
+{% block particle %}{# comienza el código de la particula #}
+    <div class="{{ particle.css.class|e }}" {% if particle.animation %} uk-scrollspy="target: p; delay: {{particle.anim_delay}}; repeat: true" {% endif %}>   
+        <div class="{{ particle.cardbody.class|e }} uk-card uk-card-default uk-card-hover  uk-card-body">
+            {% if particle.show_title %}
+                {{ title_heading|e}}
             {% endif %}
-
-            {% if (particle.navigation|default('arrows') == 'dots') or (particle.navigation|default('arrows') == 'both') or (particle.navigation|default('arrows') == 'bothvisible') %}
-                 <div class="uk-position-bottom-center uk-position-medium">
-                    <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
-                </div>
-            {% endif %}
+            <p uk-scrollspy-class="{{ particle.email_animation|raw}}"><{{ particle.email_icon|e}}i class="far fa-envelope"></> Email: <a href="{{particle.email|e}}" class="uk-link-reset">{{particle.email|e}}</a></p>
+            <p uk-scrollspy-class="{{ particle.ws_animation|raw}}">{{ particle.ws_icon|e}} WhatsApp: <a class="uk-link-reset" href="https://wa.me/{{particle.ws_phone|e}}?text={{particle.ws_prefilledmessage|e}}">{{ particle.ws_displayed|raw}}</a></p>
+            <p uk-scrollspy-class="{{ particle.phone_animation|raw}}">{{ particle.phone_icon|e}} Phone Calls: <span>{{ particle.phone|raw}}</span></p>
         </div>
     </div>
 {% endblock %}

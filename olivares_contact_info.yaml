@@ -1,6 +1,6 @@
 name: Olivares-Contact-info
-description: Website contact info email, WhatsApp and Phonecall number  by José Luis Olivares. You can say thanks endorsing me on https://www.linkedin.com/in/jolivaress/.
-            - Paypal https://paypal.me/joolivares         
+description: Website contact info email, WhatsApp and Phonecall number  by José Luis Olivares. You can say thanks endorsing my skills on https://www.linkedin.com/in/jolivaress/.
+            - and/or making a voluntary donation through Paypal https://paypal.me/joolivares         
 type: particle
 icon: fas fa-address-book
 
@@ -23,15 +23,51 @@ form:
 
     css.class:
       type: input.selectize
-      label: CSS Classes
+      label: CSS Classes for div conatiner
       description: CSS class name for the particle.
       default: uk-margin-remove
-      
+
+    show_title:
+      type: input.checkbox
+      label: Show Title
+      description: Hide/show the particle's title.
+      default: false
+
     title:
       type: input.text
       label: Title
-      description: Customize the title text.
-      placeholder: Enter title
+      description: Customize the particle's title text.
+      default: ''
+
+    heading:
+      type: select.select
+      label: Heading level (or size)
+      description: Select the Heading Level.
+      placeholder: 'Select...'
+      default: h3
+      options:
+        h1: h1
+        h2: h2
+        h3: h3
+  
+    animation:
+      type: input.checkbox
+      label: Animate delay
+      description: Enable animation for all items.
+      default: true
+
+    anim_delay:
+      type: input.number
+      label: Animation Delay
+      description: Animation delay time (ms).
+      deault: 300
+
+    cardbody.class:
+      type: input.selectize
+      label: CSS Classes for the uk-card body container 
+      description: CSS class for uk-card (items are inside this div).
+      default: uk-margin
+
 
     tabs:
       type: container.tabs
@@ -69,6 +105,12 @@ form:
                     _top: Top
                     _blank: New Window
 
+            email_animation:
+                type: input.text
+                label: Animation applied to email address 
+                description: Define the custom Uikit animation class for email address .
+                default: uk-animation-slide-top 
+
             email_css:
                 type: input.selectize
                 label: Classes applied to email address 
@@ -99,13 +141,20 @@ form:
               type: input.text
               label: WhatsApp prefilled Message
               placeholder: 'Please, contact me'
-              description: Write the prefilled message to start the WhatsApp Chat            
+              default: Hola%2C+me+gustar%C3%ADa+que+me+proporcionaran+mayor+informaci%C3%B3n
+              description: Write the prefilled message to start the WhatsApp Chat (use Whatsapp api message rules)           
+
+            ws_animation:
+                type: input.text
+                label: Animation applied to WhatsApp phone number 
+                description: Define the custom Uikit animation class for WhatsApp phone number.
+                default: uk-animation-slide-bottom 
 
             ws_css:
                 type: input.selectize
                 label: Classes applied to WhatsApp phone number 
                 description: Define the custom classes for WhatsApp phone number.
-                default: uk-link-reset  
+                default: uk-link-reset   
 
         tab_phonecall:
           label: Phone call number
@@ -119,7 +168,13 @@ form:
             phone_icon:
               type: input.icon
               label: Icon
-              default: <i class="far fa-phone-alt"></i>
+              default: <i class="fas fa-phone-alt"></i>
+
+            phone_animation:
+                type: input.text
+                label: Animation applied to email address 
+                description: Define the custom Uikit animation class for email address .
+                default: uk-animation-slide-top 
 
             phone_css:
                 type: input.selectize
