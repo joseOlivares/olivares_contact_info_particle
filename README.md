@@ -1,4 +1,4 @@
-# olivares_whatsapp_contact_particle
+# olivares_contact_info_particle
 WhatsApp contact particle for Gantry 5 (Joomla), using UIkit 3
 
 Hi my name is Jose Olivares, this is my WhatsApps Contact  Gantry 5 particle. Please endorse my skills on Linkedin (https://www.linkedin.com/in/jolivaress/)   You can see an example in this website I made (http://mystudygo.com)
