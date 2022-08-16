@@ -1,6 +1,6 @@
 name: Olivares-Contact-info
-description: Website contact info email, WhatsApp and others  by José Luis Olivares. You can say thanks endorsing me on https://www.linkedin.com/in/jolivaress/.
-             
+description: Website contact info email, WhatsApp and Phonecall number  by José Luis Olivares. You can say thanks endorsing me on https://www.linkedin.com/in/jolivaress/.
+            - Paypal https://paypal.me/joolivares         
 type: particle
 icon: fas fa-address-book
 
@@ -25,8 +25,8 @@ form:
       type: input.selectize
       label: CSS Classes
       description: CSS class name for the particle.
-      default: contact-info
-
+      default: uk-margin-remove
+      
     title:
       type: input.text
       label: Title
@@ -69,43 +69,61 @@ form:
                     _top: Top
                     _blank: New Window
 
+            email_css:
+                type: input.selectize
+                label: Classes applied to email address 
+                description: Define the custom classes for the email address.
+                default: uk-link-reset              
 
-    phonedisplay:
-      type: input.text
-      label: Phone Number to Display (use any format)
-      placeholder: '(999) 9999-9999'
-      description: Set the Whatsapp phone number to Display (Use any format) 
+        tab_whatsapp:
+          label: contact WhatsApp
+          fields:
+            ws_phone:
+              type: input.text
+              label: Phone Number to Link (just numbers with no spaces)
+              placeholder: '99999999999'
+              description: Set the WhatsApp phone number to link (Ex. 50312345678, don´t use +999-(999)99999999) 
 
-    phonenumber:
-      type: input.text
-      label: Phone Number to Link (numbers with no spaces)
-      placeholder: '99999999999'
-      description: Set the Whatsapp phone number to link (Ex. 50312345678, don´t use +001-(XXX)XXXXXXX) 
+            ws_displayed:
+              type: input.text
+              label: Phone Number to Display (use any format)
+              placeholder: '(999) 9999-9999'
+              description: Set the Whatsapp phone number to Display (Use the format you want to show on the user) 
 
-    linkclass:
-      type: input.selectize
-      label: Classes applied to Phone number to display 
-      description: Define the classes for the number to display.
-      default: uk-link-reset
+            ws_icon:
+              type: input.icon
+              label: Icon
+              default: <i class="fab fa-whatsapp"></i>
 
-    prefilledmessage:
-      type: input.text
-      label: Prefilled Message
-      placeholder: 'Please, contact me'
-      description: Write the prefilled message to start the WhatsApp Chat
+            ws_prefilledmessage:
+              type: input.text
+              label: WhatsApp prefilled Message
+              placeholder: 'Please, contact me'
+              description: Write the prefilled message to start the WhatsApp Chat            
 
-    iconposition:
-      type: select.select
-      label: WhatsApp icon position
-      description: Define the icon position
-      placeholder: 'Select...'
-      default: left
-      options:
-        left: left 
-        right: right
+            ws_css:
+                type: input.selectize
+                label: Classes applied to WhatsApp phone number 
+                description: Define the custom classes for WhatsApp phone number.
+                default: uk-link-reset  
 
-    css.class2:
-      type: input.selectize
-      label: CSS Classes
-      description: CSS class name for the particle.
-      default: uk-margin-remove
+        tab_phonecall:
+          label: Phone call number
+          fields:
+            phone:
+              type: input.text
+              label: Phone Number 
+              placeholder: ''
+              description: Set the phone number as you want to be shown (you set the format)
+
+            phone_icon:
+              type: input.icon
+              label: Icon
+              default: <i class="far fa-phone-alt"></i>
+
+            phone_css:
+                type: input.selectize
+                label: Classes applied to the phone call number 
+                description: Define the custom classes for phone call number.  
+
+
