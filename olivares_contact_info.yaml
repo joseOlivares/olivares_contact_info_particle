@@ -1,0 +1,111 @@
+name: Olivares-Contact-info
+description: Website contact info email, WhatsApp and others  by José Luis Olivares. You can say thanks endorsing me on https://www.linkedin.com/in/jolivaress/.
+             
+type: particle
+icon: fas fa-address-book
+
+configuration:
+  caching:
+    type: static
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      description: Globally enable Contact Information particle.
+      default: true
+
+    _note:
+      type: separator.note
+      class: alert alert-info
+      content: '<strong>This Particle requires the "UIkit 3.x for Gantry 5.3.2+ and FontAwesome 5.x" Atom to be loaded.</strong>'
+
+    css.class:
+      type: input.selectize
+      label: CSS Classes
+      description: CSS class name for the particle.
+      default: contact-info
+
+    title:
+      type: input.text
+      label: Title
+      description: Customize the title text.
+      placeholder: Enter title
+
+    tabs:
+      type: container.tabs
+      fields:
+        tab_email:
+          label: contact email
+          fields:
+            email:
+              type: input.email
+              label: email
+              placeholder: 'contact@yourdomin.com'
+              description: The email address to reach you
+
+            email_icon:
+              type: input.icon
+              label: Icon
+              default: <i class="far fa-envelope"></i>
+            
+            email_link:
+                type: input.checkbox
+                label: Enabled
+                description: Using email as a link?.
+                default: true
+
+            email_window_target:
+                type: select.select
+                label: Target
+                description: Target browser window when item is clicked.
+                placeholder: 'Select...'
+                default: ''
+                options:
+                    '': None
+                    _self: Self
+                    _parent: Parent
+                    _top: Top
+                    _blank: New Window
+
+
+    phonedisplay:
+      type: input.text
+      label: Phone Number to Display (use any format)
+      placeholder: '(999) 9999-9999'
+      description: Set the Whatsapp phone number to Display (Use any format) 
+
+    phonenumber:
+      type: input.text
+      label: Phone Number to Link (numbers with no spaces)
+      placeholder: '99999999999'
+      description: Set the Whatsapp phone number to link (Ex. 50312345678, don´t use +001-(XXX)XXXXXXX) 
+
+    linkclass:
+      type: input.selectize
+      label: Classes applied to Phone number to display 
+      description: Define the classes for the number to display.
+      default: uk-link-reset
+
+    prefilledmessage:
+      type: input.text
+      label: Prefilled Message
+      placeholder: 'Please, contact me'
+      description: Write the prefilled message to start the WhatsApp Chat
+
+    iconposition:
+      type: select.select
+      label: WhatsApp icon position
+      description: Define the icon position
+      placeholder: 'Select...'
+      default: left
+      options:
+        left: left 
+        right: right
+
+    css.class2:
+      type: input.selectize
+      label: CSS Classes
+      description: CSS class name for the particle.
+      default: uk-margin-remove
