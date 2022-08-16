@@ -52,15 +52,15 @@ form:
   
     animation:
       type: input.checkbox
-      label: Animate delay
-      description: Enable animation for all items.
+      label: ScrollSpy Animation
+      description: Enable ScrollSpy animation for all items.
       default: true
 
     anim_delay:
       type: input.number
       label: Animation Delay
       description: Animation delay time (ms).
-      deault: 300
+      default: 300
 
     cardbody.class:
       type: input.selectize
@@ -73,8 +73,14 @@ form:
       type: container.tabs
       fields:
         tab_email:
-          label: contact email
+          label: Email
           fields:
+            email_show:
+                type: input.checkbox
+                label: Show email
+                description: Show or hide Email item.
+                default: true
+
             email:
               type: input.email
               label: email
@@ -84,42 +90,29 @@ form:
             email_icon:
               type: input.icon
               label: Icon
-              default: <i class="far fa-envelope"></i>
+              default: far fa-envelope
             
-            email_link:
-                type: input.checkbox
-                label: Enabled
-                description: Using email as a link?.
-                default: true
-
-            email_window_target:
-                type: select.select
-                label: Target
-                description: Target browser window when item is clicked.
-                placeholder: 'Select...'
-                default: ''
-                options:
-                    '': None
-                    _self: Self
-                    _parent: Parent
-                    _top: Top
-                    _blank: New Window
+            email_link_css:
+                type: input.selectize
+                label: Classes applied to email address 
+                description: Ui-kit classes for the email link.
+                default: uk-link-reset  
 
             email_animation:
                 type: input.text
                 label: Animation applied to email address 
                 description: Define the custom Uikit animation class for email address .
                 default: uk-animation-slide-top 
-
-            email_css:
-                type: input.selectize
-                label: Classes applied to email address 
-                description: Define the custom classes for the email address.
-                default: uk-link-reset              
-
+        
         tab_whatsapp:
-          label: contact WhatsApp
+          label: WhatsApp
           fields:
+            ws_show:
+                type: input.checkbox
+                label: Show Whatsapp
+                description: Show or hide Whatsapp item.
+                default: true
+
             ws_phone:
               type: input.text
               label: Phone Number to Link (just numbers with no spaces)
@@ -135,7 +128,7 @@ form:
             ws_icon:
               type: input.icon
               label: Icon
-              default: <i class="fab fa-whatsapp"></i>
+              default: fab fa-whatsapp
 
             ws_prefilledmessage:
               type: input.text
@@ -157,8 +150,14 @@ form:
                 default: uk-link-reset   
 
         tab_phonecall:
-          label: Phone call number
+          label: Phone call
           fields:
+            phone_show:
+              type: input.checkbox
+              label: Show Phone Calls Number
+              description: Show or hide Phone Call Number item.
+              default: true
+
             phone:
               type: input.text
               label: Phone Number 
@@ -168,7 +167,7 @@ form:
             phone_icon:
               type: input.icon
               label: Icon
-              default: <i class="fas fa-phone-alt"></i>
+              default: fas fa-phone-alt
 
             phone_animation:
                 type: input.text

@@ -25,9 +25,18 @@ and/or  making a voluntary donation through Paypal https://paypal.me/joolivares 
             {% if particle.show_title %}
                 {{ title_heading|e}}
             {% endif %}
-            <p uk-scrollspy-class="{{ particle.email_animation|raw}}"><{{ particle.email_icon|e}}i class="far fa-envelope"></> Email: <a href="{{particle.email|e}}" class="uk-link-reset">{{particle.email|e}}</a></p>
-            <p uk-scrollspy-class="{{ particle.ws_animation|raw}}">{{ particle.ws_icon|e}} WhatsApp: <a class="uk-link-reset" href="https://wa.me/{{particle.ws_phone|e}}?text={{particle.ws_prefilledmessage|e}}">{{ particle.ws_displayed|raw}}</a></p>
-            <p uk-scrollspy-class="{{ particle.phone_animation|raw}}">{{ particle.phone_icon|e}} Phone Calls: <span>{{ particle.phone|raw}}</span></p>
+
+            {% if particle.email_show %}
+                <p uk-scrollspy-class="{{ particle.email_animation|raw}}"><i class="{{particle.email_icon|e}}"></i> Email: <a href="{{particle.email|e}}" class="{{particle.email_link_css|e}}">{{particle.email|e}}</a></p>
+            {% endif %}
+
+            {% if particle.ws_show %}
+                <p uk-scrollspy-class="{{ particle.ws_animation|raw}}"><i class="{{ particle.ws_icon|e}}"></i> WhatsApp: <a class="{{particle.ws_css}}" href="https://wa.me/{{particle.ws_phone|e}}?text={{particle.ws_prefilledmessage|e}}">{{ particle.ws_displayed|raw}}</a></p>
+            {% endif %}
+
+            {% if particle.phone_show %}
+                <p uk-scrollspy-class="{{ particle.phone_animation|raw}}"><i class="{{ particle.phone_icon|e}}"></i> Phone Calls: <span class="{{particle.phone_css}}">{{ particle.phone|raw}}</span></p>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
