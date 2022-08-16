@@ -1,12 +1,10 @@
 # olivares_contact_info_particle
-Contact information particle  for Gantry 5.x (Joomla), using UIkit 3.x
+Contact information particle, version 2  for Gantry 5.3.2+ (Joomla 4 or 3 compatible), using UIkit 3.x and FontAwesome 5.x
 
-Hi my name is Jose Olivares, this my particle to show site Contact Information  Gantry for  5.x. 
+Hi my name is Jose Luis Olivares, this is my particle to show site Contact Information for Gantry 5.3.2+ 
 If you appreciate my effort, please endorse my skills on Linkedin (https://www.linkedin.com/in/jolivaress/) or making a voluntary donation through Paypal https://paypal.me/joolivares 
 
-You can see an example in this website I made (http://iconnsv.com)
-
-
+You can see an example implemented in this website I made (https://iconnsv.com)
 
 #Installation on Joomla 3.x / 4.x:
 
