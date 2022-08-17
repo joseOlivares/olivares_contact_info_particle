@@ -18,3 +18,17 @@ You can see an example implemented in this website I made (https://iconnsv.com)
 	@import "olivares-contact-info"; /* Olivares Contact Info Particle */
 
   If the custom.scss file does not exists, you will need to create it manually. Also, make sure your custom.scss file has the @import "dependencies"; code at the very top.
+
+## Some Screenshots
+
+#Particle on Gantry 5.3.2+
+![gantry5-particle]( ../agregar-particle.jpg?raw=true "Add particle")
+
+#Chosing between uk-card mode or no-card presentation
+![presentation-mode]( ../presentacion.jpg?raw=true "Presentation")
+
+#Uk-card presentation 
+![card-mode]( ../card-mode.jpg?raw=true "Card mode")
+
+#No card presentation (apliying custom uikit classes to the div container)
+![nocard-mode]( ../nocard-mode.jpg?raw=true "No-card mode")
