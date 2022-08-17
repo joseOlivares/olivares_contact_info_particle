@@ -6,7 +6,7 @@ If you appreciate my effort, please endorse my skills on Linkedin (https://www.l
 
 You can see an example implemented in this website I made (https://iconnsv.com)
 
-#Installation on Joomla 3.x / 4.x:
+# Installation on Joomla 3.x / 4.x:
 
 1-Copy the olivares_contact_info.html.twig and olivares_contact_info.yaml files to root/templates/TEMPLATE_DIR/custom/particles (if the particles folder does not exist, you have to create it manually)
 
@@ -21,14 +21,14 @@ You can see an example implemented in this website I made (https://iconnsv.com)
 
 ## Some Screenshots
 
-#Particle on Gantry 5.3.2+
-![gantry5-particle]( ./agregar-particle.jpg?raw=true "Add particle")
+# Particle on Gantry 5.3.2+
+![gantry5-particle]( ./no-copy-imgs/agregar-particle.jpg?raw=true "Add particle")
 
-#Chosing between uk-card mode or no-card presentation
-![presentation-mode](presentacion.jpg?raw=true "Presentation")
+# Chosing between uk-card mode or no-card presentation
+![presentation-mode](./no-copy-imgs/presentacion.jpg?raw=true "Presentation")
 
-#Uk-card presentation 
+# Uk-card presentation 
 ![card-mode]( ./no-copy-imgs/card-mode.jpg?raw=true "Card mode")
 
-#No card presentation (apliying custom uikit classes to the div container)
-![nocard-mode]( ../no-copy-imgs/nocard-mode.jpg?raw=true "No-card mode")
+# No card presentation (apliying custom uikit classes to the div container)
+![nocard-mode]( ./no-copy-imgs/nocard-mode.jpg?raw=true "No-card mode")
