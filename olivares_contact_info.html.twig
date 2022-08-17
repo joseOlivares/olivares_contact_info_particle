@@ -5,15 +5,15 @@ and/or  making a voluntary donation through Paypal https://paypal.me/joolivares 
 {% extends '@nucleus/partials/particle.html.twig' %} 
 
 {% set title_heading %} {# definiendo que heading mostrar y almacenando en variable title_heading #}
-    {% if particle.heading|e == h1 %}
+    {% if particle.heading == 'h1' %}
         <h1 class="uk-card-title">{{ particle.title|raw}}</h1>
     {% endif %}
 
-    {% if particle.heading|e == h2 %}
+    {% if particle.heading == 'h2' %}
         <h2 class="uk-card-title">{{ particle.title|raw}}</h2>
     {% endif %}
 
-    {% if particle.heading|e == h3 %}
+    {% if particle.heading == 'h3' %}
         <h3 class="uk-card-title">{{ particle.title|raw}}</h3>
     {% endif %}            
 {% endset %}
@@ -21,13 +21,18 @@ and/or  making a voluntary donation through Paypal https://paypal.me/joolivares 
 
 {% block particle %}{# comienza el código de la particula #}
     <div class="{{ particle.css.class|e }}" {% if particle.animation %} uk-scrollspy="target: p; delay: {{particle.anim_delay}}; repeat: true" {% endif %}>   
-        <div class="{{ particle.cardbody.class|e }} uk-card uk-card-default uk-card-hover  uk-card-body">
+    {% if particle.show_as_card %}
+        <div class="{{ particle.cardbody.class|e }} uk-card {{particle.cardstyle.class}} uk-card-hover  uk-card-body">
+    {% else %}
+        <div class="{{ particle.div_css|e }}">
+    {% endif %}
+
             {% if particle.show_title %}
-                {{ title_heading|e}}
+                {{ title_heading|raw}}
             {% endif %}
 
             {% if particle.email_show %}
-                <p uk-scrollspy-class="{{ particle.email_animation|raw}}"><i class="{{particle.email_icon|e}}"></i> Email: <a href="{{particle.email|e}}" class="{{particle.email_link_css|e}}">{{particle.email|e}}</a></p>
+                <p uk-scrollspy-class="{{ particle.email_animation|raw}}"><i class="{{particle.email_icon|e}}"></i> Email: <a href="mailto:{{particle.email|e}}" class="{{particle.email_link_css|e}}">{{particle.email|e}}</a></p>
             {% endif %}
 
             {% if particle.ws_show %}

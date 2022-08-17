@@ -62,12 +62,34 @@ form:
       description: Animation delay time (ms).
       default: 300
 
+    show_as_card:
+      type: input.checkbox
+      label: Show particle as a uk-card
+      description: Show particle content applying uk-card to the container.
+      default: true
+
+    div_css:
+      type: input.selectize
+      label: Div Classes (when no uk-card presentation)
+      description: Classes applied when particle is not showed as a Card 
+      default: uk-section uk-section-muted
+
     cardbody.class:
       type: input.selectize
       label: CSS Classes for the uk-card body container 
       description: CSS class for uk-card (items are inside this div).
       default: uk-margin
 
+    cardstyle.class:
+      type: select.select
+      label: Card Style (uikit 3 classes)
+      description: Select the card style.
+      placeholder: 'Select...'
+      default: uk-card-default
+      options:
+        uk-card-default: default
+        uk-card-primary: primary
+        uk-card-secondary: secondary
 
     tabs:
       type: container.tabs
