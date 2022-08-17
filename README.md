@@ -22,13 +22,13 @@ You can see an example implemented in this website I made (https://iconnsv.com)
 ## Some Screenshots
 
 #Particle on Gantry 5.3.2+
-![gantry5-particle]( ../agregar-particle.jpg?raw=true "Add particle")
+![gantry5-particle]( ./agregar-particle.jpg?raw=true "Add particle")
 
 #Chosing between uk-card mode or no-card presentation
-![presentation-mode]( ../presentacion.jpg?raw=true "Presentation")
+![presentation-mode](presentacion.jpg?raw=true "Presentation")
 
 #Uk-card presentation 
-![card-mode]( ../card-mode.jpg?raw=true "Card mode")
+![card-mode]( ./no-copy-imgs/card-mode.jpg?raw=true "Card mode")
 
 #No card presentation (apliying custom uikit classes to the div container)
-![nocard-mode]( ../nocard-mode.jpg?raw=true "No-card mode")
+![nocard-mode]( ../no-copy-imgs/nocard-mode.jpg?raw=true "No-card mode")
