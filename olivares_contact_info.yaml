@@ -72,7 +72,7 @@ form:
       type: input.selectize
       label: Div Classes (when no uk-card presentation)
       description: Classes applied when particle is not showed as a Card 
-      default: uk-section uk-section-muted
+      default: uk-section uk-section-muted uk-padding uk-text-secondary uk-text-center
 
     cardbody.class:
       type: input.selectize
