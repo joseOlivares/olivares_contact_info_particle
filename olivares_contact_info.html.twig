@@ -6,11 +6,11 @@ and/or  making a voluntary donation through Paypal https://paypal.me/joolivares 
 
 {% set title_heading %} {# definiendo que heading mostrar y almacenando en variable title_heading #}
     {% if particle.heading == 'h1' %}
-        <h1 class="uk-card-title">{{ particle.title|raw}}</h1>
+        <h1>{{ particle.title|raw}}</h1>
     {% endif %}
 
     {% if particle.heading == 'h2' %}
-        <h2 class="uk-card-title">{{ particle.title|raw}}</h2>
+        <h2>{{ particle.title|raw}}</h2>
     {% endif %}
 
     {% if particle.heading == 'h3' %}
